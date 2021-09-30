@@ -1,0 +1,9 @@
+textarea {
+  display: block;
+  resize: none;
+  margin: 32px 0 8px;
+}
+
+td {
+  padding-right: 12px;
+}
