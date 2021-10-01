@@ -5,5 +5,6 @@ Repositorio destinado al codigo del Front End del Reto 2 del Ciclo Desarrollo de
   <li>German David Luna Peluche</li>
   <li>Ivan Mauricio Dueñas Gallo</li>
   <li>Ian Michael Williams Leon</li>
+  <li>Juan David Rojas Cañizales</li>
   <li>Jhan Carlos Viloria Murillo</li>
 </ul>
