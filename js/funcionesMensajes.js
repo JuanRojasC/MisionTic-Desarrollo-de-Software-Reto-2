@@ -31,7 +31,7 @@ function añadirMensaje() {
     url: `${baseUrl}/ords/admin/message/message`,
     type: 'POST',
     data: JSON.stringify({
-      id: $('#messages table tr').length + 1,
+      id: Math.floor(Math.random() * (9999999 - 1)) + 1,
       messagetext: $('#messagetext').val(),
     }),
     dataType: 'json',
