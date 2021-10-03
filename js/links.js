@@ -5,7 +5,7 @@ class ian{
 
 //juan.rojas3.mt@correo.usa.edu.co
 class juan{
-    static UrlBase = "";
+    static UrlBase = "https://g9acbb495f01cb2-reto2frontend.adb.sa-saopaulo-1.oraclecloudapps.com/ords/admin/client/client";
 }
 
 //german.luna.mt@correo.usa.edu.co

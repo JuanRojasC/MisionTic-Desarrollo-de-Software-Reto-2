@@ -1,0 +1,34 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body{
+    width: 100vw;
+}
+
+.formulario-clientes{
+    margin: 0 auto;
+}
+
+.label-clientes{
+    font-weight: bold;
+    display: block;
+}
+
+.input-clientes{
+    margin-bottom: 1vw;
+}
+
+.registrar-boton{
+    display: block;
+    border: 2px solid gray;
+    padding: 0.5vw;
+    cursor: pointer;
+}
+
+.tabla_clientes td{
+    display: inline-block;
+    font-weight: bold;
+}
