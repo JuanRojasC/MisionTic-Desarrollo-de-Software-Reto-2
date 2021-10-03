@@ -1,5 +1,5 @@
-// Añadir en esta variable la url de su base de datos
-const baseUrl = ""
+// Remplazar con su nombre terminado en 'an' y Añadir la url de su base de datos en links.
+const baseUrl = ian.UrlBase;
 
 function listarMensajes() {
   $.ajax({

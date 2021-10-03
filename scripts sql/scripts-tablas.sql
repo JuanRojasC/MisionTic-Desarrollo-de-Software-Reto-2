@@ -10,8 +10,8 @@ Create table MESSAGE(
     Messagetext VARCHAR2(4000) 
 );
 
-CREATE TABLE Partyroom (
-    id NUMBER NOT NULL,
+CREATE TABLE PARTYROOM (
+    ID NUMBER NOT NULL,
     owner varchar2(20) NOT NULL,
     capacity NUMBER NULL,
     category_id NUMBER NULL,
@@ -19,7 +19,7 @@ CREATE TABLE Partyroom (
     PRIMARY KEY (id)
 );
 
-Create table categoria(
-    id NUMBER PRIMARY KEY,
+Create table CATEGORY(
+    ID NUMBER PRIMARY KEY,
     name VARCHAR2(400) 
 );

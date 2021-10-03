@@ -1,3 +1,7 @@
+function imprimir2(){
+	
+	window.alert(ian.UrlBase);	
+}
 
 function imprimir(){
 	console.log("test");

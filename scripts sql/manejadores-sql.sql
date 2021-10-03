@@ -1,7 +1,7 @@
 --MANEJADORES TABLA CLIENT
 
 --GET
-select * from client;
+SELECT * FROM CLIENT;
 
 --POST
 BEGIN
@@ -29,7 +29,7 @@ END;
 --MANEJADORES TABLA MESSAGE
 
 --GET
-select * from message;
+SELECT * FROM MESSAGE;
 
 --POST
 BEGIN
@@ -43,7 +43,7 @@ END;
 BEGIN
     UPDATE MESSAGE
     SET MESSAGETEXT =: messagetext
-    where ID =: id;
+    WHERE ID =: id;
     :status_code:=201;
 END;
 
@@ -57,27 +57,27 @@ END;
 --MANEJADORES TABLA CATEGORIA
 
 --GET
-select * from categoria;
+SELECT * FROM CATEGORY;
 
 --POST
 BEGIN
-    INSERT INTO categoria
-    (id, name)
+    INSERT INTO CATEGORY
+    (ID, NAME)
     VALUES (:id, :name);
     : status_code := 201;
 END;
 
 --PUT
 BEGIN
-    UPDATE categoria
-    SET name=: name
-    where ID =: id;
+    UPDATE CATEGORY
+    SET NAME=: name
+    WHERE ID =: id;
     :status_code:=201;
 END;
 
 --DELETE
 BEGIN
-    DELETE FROM categoria
+    DELETE FROM CATEGORY
     WHERE ID=:id;
     :status_code:=204;
 END;
