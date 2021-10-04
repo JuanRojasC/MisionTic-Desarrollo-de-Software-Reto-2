@@ -1,5 +1,6 @@
 // Remplazar con su nombre terminado en 'an' y Añadir la url de su base de datos en links.
-const baseUrl = ian.UrlBase;
+// const baseUrl = ian.UrlBase;
+const baseUrl = 'https://g9acbb495f01cb2-reto2frontend.adb.sa-saopaulo-1.oraclecloudapps.com';
 
 function listarMensajes() {
   $.ajax({
@@ -7,22 +8,25 @@ function listarMensajes() {
     type: 'GET',
     datatype: 'JSON',
     success: respuesta => {
-      let table = '<table>'
+      let table;
       respuesta.items.forEach(({ id, messagetext }) => {
         table += `
           <tr>
-            <td>${messagetext}</td>
-            <td class="columna-options-tabla-clientes">
+            <td class="columna-id-tabla-mensajes">${id}</td>
+            <td class="columna-message-tabla-mensajes">${messagetext}</td>
+            <td class="columna-options-tabla-mensajes">
               <i class="fas fa-trash-alt eliminar-icon icon" onclick="eliminarMensaje(${id})"></i>
               <i class="fas fa-envelope-open-text vista-icon icon" onclick="leerMensaje(${id})"></i>
             </td>;
           </tr>
       `
       })
-      $('#messages').append(table + '</table>')
+      $('.tabla_mensajes').append(table + '</table>')
     }
   })
 }
+
+listarMensajes();
 
 function añadirMensaje() {
   $.ajax({
@@ -40,10 +44,14 @@ function añadirMensaje() {
         listarMensajes()
       },
     },
+    error: function(respuesta){
+      console.log(respuesta);
+    }
   })
 }
 
 function eliminarMensaje(id) {
+  alert("entre")
   $.ajax({
     url: `${baseUrl}/ords/admin/message/message`,
     type: 'DELETE',
