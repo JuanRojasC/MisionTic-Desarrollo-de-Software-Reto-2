@@ -1,11 +1,11 @@
 textarea {
   display: block;
   resize: none;
-  margin: 32px 0 8px;
+  margin: 10px 0 8px;
   /*margin: arriba derecha abajo izquierda*/
 }
 
-td {
+/* td {
   padding-right: 12px;
 }
 
@@ -30,5 +30,116 @@ p{
   left: 250px;
   top: 0px;
   cursor: pointer;
+} */
+
+*{
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: grey;
+}
+
+main{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.container-formulario{
+  width: 30vw;
+  padding: 1vw 3vw;
+  box-shadow: 2px 2px 2px 2px grey;
+  background-color: white;
+}
+
+.container-formulario h1{
+  text-align: center;
+  font-size: 2vw;
+  margin: 2vw auto;
+  background-color: white;
+}
+
+.formulario-mensajes{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: white;
+}
+
+.label-mensajes{
+  font-weight: bold;
+  display: block;
+  background-color: white;
+}
+
+.input-mensajes{
+  margin-bottom: 1vw;
+  background-color: white;
+  padding: 0.35vw 0.5vw;
+}
+
+.registrar-mensajes-boton{
+  display: block;
+  background-color: white;
+  border: 2px solid black;
+  padding: 0.5vw;
+  cursor: pointer;
+  width: 40%;
+  margin: 1vw auto;
+  border-radius: 10px;
+}
+
+#mensajes_registrados{
+  margin-left: 10vw;
+}
+
+#mensajes_registrados h1{
+  text-align: center;
+  font-size: 2vw;
+  margin: 1vw auto;
+  background-color: white;
+}
+
+#mensajes_registrados .tabla_mensajes{
+  width: 50vw;
+}
+
+.header-tabla-mensajes{
+  background-color: black!important;
+  color: white;
+}
+
+.header-id-tabla-mensajes{
+  width: 5vw;
+}
+
+.header-options-tabla-mensajes{
+  width: 10vw;
+}
+
+.columna-id-tabla-mensajes{
+  text-align: center;
+}
+
+#mensajes_registrados .tabla_mensajes td{
+  font-weight: bold;
+  background-color: white;
+  padding: 0.5vw 1vw
+}
+
+.icon{
+  color: black;
+  cursor: pointer;
+  margin-right: 1vw;
+}
+
+.icon:hover{
+  transform: scale(1.5);
 }
 

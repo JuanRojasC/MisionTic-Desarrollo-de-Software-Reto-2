@@ -7,22 +7,20 @@ function listarMensajes() {
     type: 'GET',
     datatype: 'JSON',
     success: respuesta => {
-      $('#messages').empty()
-
       let table = '<table>'
-
       respuesta.items.forEach(({ id, messagetext }) => {
         table += `
           <tr>
             <td>${messagetext}</td>
-            <td><button onclick="eliminarMensaje(${id})">Eliminar</button></td>
-            <td><button onclick="leerMensaje(${id})">Leer</button></td>
+            <td class="columna-options-tabla-clientes">
+              <i class="fas fa-trash-alt eliminar-icon icon" onclick="eliminarMensaje(${id})"></i>
+              <i class="fas fa-envelope-open-text vista-icon icon" onclick="leerMensaje(${id})"></i>
+            </td>;
           </tr>
       `
       })
-
       $('#messages').append(table + '</table>')
-    },
+    }
   })
 }
 

@@ -2,33 +2,101 @@
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: grey;
 }
 
-body{
-    width: 100vw;
+main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.container-formulario{
+    width: 30vw;
+    padding: 1vw 3vw;
+    box-shadow: 2px 2px 2px 2px grey;
+    background-color: white;
+}
+
+.container-formulario h1{
+    text-align: center;
+    font-size: 2vw;
+    margin: 1vw auto;
+    background-color: white;
 }
 
 .formulario-clientes{
-    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: white;
 }
 
 .label-clientes{
     font-weight: bold;
     display: block;
+    background-color: white;
 }
 
 .input-clientes{
     margin-bottom: 1vw;
+    background-color: white;
+    padding: 0.35vw 0.5vw;
 }
 
-.registrar-boton{
+.registrar-clientes-boton{
     display: block;
-    border: 2px solid gray;
+    background-color: white;
+    border: 2px solid black;
     padding: 0.5vw;
     cursor: pointer;
+    width: 40%;
+    margin: 1vw auto;
+    border-radius: 10px;
 }
 
-.tabla_clientes td{
-    display: inline-block;
+#clientes_registrados{
+    margin-left: 10vw;
+}
+
+#clientes_registrados h1{
+    text-align: center;
+    font-size: 2vw;
+    margin: 1vw auto;
+    background-color: white;
+}
+
+#clientes_registrados .tabla_clientes{
+    width: 50vw;
+}
+
+.header-tabla-clientes{
+    background-color: black!important;
+    color: white;
+}
+
+.columna-id-tabla-clientes{
+    text-align: center;
+}
+
+#clientes_registrados .tabla_clientes td{
     font-weight: bold;
+    background-color: white;
+    padding: 0.5vw 1vw
+}
+
+.icon{
+    color: black;
+    cursor: pointer;
+    margin-right: 1vw;
+}
+
+.icon:hover{
+    transform: scale(1.5);
 }
