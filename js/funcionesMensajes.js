@@ -8,7 +8,13 @@ function listarMensajes() {
     type: 'GET',
     datatype: 'JSON',
     success: respuesta => {
-      let table;
+      let headersTable = `
+        <tr>
+          <td class="columna-id-tabla-mensajes header-id-tabla-mensajes header-tabla-mensajes">Id</td>
+          <td class="columna-message-tabla-mensajes header-message-tabla-mensajes header-tabla-mensajes">Mensaje</td>
+          <td class="columna-options-tabla-mensajes header-options-tabla-mensajes header-tabla-mensajes">Opciones</td>
+        </tr>`
+      let table = headersTable;
       respuesta.items.forEach(({ id, messagetext }) => {
         table += `
           <tr>
@@ -21,6 +27,7 @@ function listarMensajes() {
           </tr>
       `
       })
+      $('.tabla_mensajes').empty();
       $('.tabla_mensajes').append(table + '</table>')
     }
   })
@@ -32,26 +39,21 @@ function añadirMensaje() {
   $.ajax({
     url: `${baseUrl}/ords/admin/message/message`,
     type: 'POST',
-    data: JSON.stringify({
-      id: Math.floor(Math.random() * (9999999 - 1)) + 1,
-      messagetext: $('#messagetext').val(),
-    }),
     dataType: 'json',
     contentType: 'application/json; charset=utf-8',
+    data: JSON.stringify({
+      id: Math.floor(Math.random() * (9999 - 1)) + 1,
+      messagetext: $('#messagetext').val()
+    }),
     statusCode: {
       201: () => {
-        $('#messagetext').val('')
         listarMensajes()
       },
     },
-    error: function(respuesta){
-      console.log(respuesta);
-    }
   })
 }
 
 function eliminarMensaje(id) {
-  alert("entre")
   $.ajax({
     url: `${baseUrl}/ords/admin/message/message`,
     type: 'DELETE',
@@ -63,9 +65,6 @@ function eliminarMensaje(id) {
     },
   })
 }
-
-listarMensajes()
-
 
 function leerMensaje(id){
   $.ajax({

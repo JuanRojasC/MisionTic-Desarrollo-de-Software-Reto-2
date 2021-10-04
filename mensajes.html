@@ -27,7 +27,7 @@
     <main>
       <div class="container-formulario">
           <h1>Registro de Mensajes</h1>
-          <form class="formulario-mensajes" onsubmit="añadirMensaje()">
+          <form class="formulario-mensajes">
             <label class="label-mensajes">Mensaje: </label>
             <textarea id="messagetext" cols="32" rows="6" placeholder="Escribe tu mensaje aquí" class="label-mensajes"></textarea>
             <button class="registrar-mensajes-boton" onclick="añadirMensaje()">Registrar</button>
@@ -36,11 +36,6 @@
       <div id="mensajes_registrados">
           <h1>Registro de Mensajes</h1>
           <table class="tabla_mensajes">
-              <tr>
-                  <td class="columna-id-tabla-mensajes header-id-tabla-mensajes header-tabla-mensajes">Id</td>
-                  <td class="columna-message-tabla-mensajes header-message-tabla-mensajes header-tabla-mensajes">Mensaje</td>
-                  <td class="columna-options-tabla-mensajes header-options-tabla-mensajes header-tabla-mensajes">Opciones</td>
-              </tr>
           </table>
       </div>
     </main>
