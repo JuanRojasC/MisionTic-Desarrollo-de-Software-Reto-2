@@ -27,7 +27,9 @@
     <main>
       <div class="container-formulario">
           <h1>Registro de Mensajes</h1>
-          <form class="formulario-mensajes">
+          <form class="formulario-mensajes" onsubmit="añadirMensaje()" id="formulario-mensajes">
+            <label for="message_id" class="label-mensajes">ID: </label>
+            <input type="number" id="message_id" name="message_id" class="input-mensajes"/>
             <label class="label-mensajes">Mensaje: </label>
             <textarea id="messagetext" cols="32" rows="6" placeholder="Escribe tu mensaje aquí" class="label-mensajes"></textarea>
             <button class="registrar-mensajes-boton" onclick="añadirMensaje()">Registrar</button>

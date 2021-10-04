@@ -9,7 +9,8 @@ function listarClientes(){
     contentType: 'application/json; charset=utf-8',
 	success:function(respuesta){
 		let tabla;
-		for(i=0; i<respuesta.items.length; i++){
+		let clientes = respuesta.items.reverse()
+		for(i=0; i<clientes.length; i++){
 			tabla += '<tr>';              
 			tabla += '<td class="columna-id-tabla-clientes">'+respuesta.items[i].id+'</td>';
 			tabla += '<td class="columna-name-tabla-clientes">'+respuesta.items[i].name+'</td>';
@@ -43,11 +44,7 @@ function agregarCliente(){
 			age: parseInt($("#age_cliente").val())
 		}),
 		statusCode: {
-			201: () => location.reload(true)
-		},
-		error: function(xhr,status){
-			console.log(xhr)
-			alert("El cliente no pudo ser registrado\n\nERROR: " + status)
+			201: () => listarClientes()
 		}
 	})
 }

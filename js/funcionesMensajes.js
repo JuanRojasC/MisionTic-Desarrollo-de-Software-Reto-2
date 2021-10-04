@@ -29,6 +29,9 @@ function listarMensajes() {
       })
       $('.tabla_mensajes').empty();
       $('.tabla_mensajes').append(table + '</table>')
+    },
+    error: respuesta => {
+      console.log(respuesta)
     }
   })
 }
@@ -40,16 +43,14 @@ function añadirMensaje() {
     url: `${baseUrl}/ords/admin/message/message`,
     type: 'POST',
     dataType: 'json',
-    contentType: 'application/json; charset=utf-8',
+    contentType: 'application/json',
     data: JSON.stringify({
-      id: Math.floor(Math.random() * (9999 - 1)) + 1,
+      id: parseInt($("#message_id").val()),
       messagetext: $('#messagetext').val()
     }),
     statusCode: {
-      201: () => {
-        listarMensajes()
-      },
-    },
+      201: () => listarMensajes()
+    }
   })
 }
 
@@ -73,7 +74,6 @@ function leerMensaje(id){
     datatype: 'JSON',
     success: respuesta => {
       let mensaje = respuesta.items[0];
-      console.log(mensaje)
       $("#message-detail").html(`
           <h2>Mensaje</h2>
           <button class="boton-cerrar" id="boton-cerrar" onclick="cerrarDetalle()" >X</button>
