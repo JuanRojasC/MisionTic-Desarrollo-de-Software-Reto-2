@@ -1,6 +1,6 @@
 // Remplazar con su nombre terminado en 'an' y Añadir la url de su base de datos en links.
 // const baseUrl = ian.UrlBase;
-const baseUrl = 'https://g546b155922178d-dbreto1.adb.sa-saopaulo-1.oraclecloudapps.com';
+const baseUrl = 'https://g9acbb495f01cb2-reto2frontend.adb.sa-saopaulo-1.oraclecloudapps.com';
 
 window.onload = function(e){
 
@@ -48,7 +48,7 @@ function listarSalones(){
     url: `${baseUrl}/ords/admin/partyroom/partyroom`,
     type: 'GET',
     datatype: 'JSON',
-  contentType: "application/json",
+    contentType: "application/json",
     success: respuesta => {
       respuesta.items.forEach((salon) => {
         table += `
