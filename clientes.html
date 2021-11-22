@@ -4,31 +4,46 @@
         <script src ="js/links.js" type = "text/javascript"></script>
         <title>Clientes</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <link href="css/clientes.css" rel="stylesheet">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <link href="css/index.css" rel="stylesheet">
     </head>
     <body>
         <main>
             <div class="container-formulario container-data">
-                <h1>Registro de Clientes</h1>
-                <form class="formulario-clientes">
-                    <label for="id_cliente" class="label-clientes">ID: </label>
-                    <input type="number" id="id_cliente" name="id_cliente" class="input-clientes" required/>
-                    <label for="name_cliente" class="label-clientes">Nombre:  </label>
-                    <input type="text" id="name_cliente" name="name_cliente" class="input-clientes" required/>
-                    <label for="email_cliente" class="label-clientes">Email:  </label>
-                    <input type="email" id="email_cliente" name="email_cliente" class="input-clientes" required/>
-                    <label for="age_cliente" class="label-clientes">Edad:  </label>
-                    <input type="number" id="age_cliente" name="age_cliente" class="input-clientes" required/>
-                    <button class="registrar-clientes-boton">Registrar</button>
+                <form class="formulario_clientes form">
+                    <h1 class="form_title">Registro de Clientes</h1>
+                    <div class="field_form">
+                        <label for="name_cliente" class="label_form">Nombre:  </label>
+                        <input type="text" id="name_cliente" name="name_cliente" class="input_form" autocomplete="off" required/>
+                    </div>
+                    <div class="field_form">
+                        <label for="email_cliente" class="label_form">Email:  </label>
+                        <input type="email" id="email_cliente" name="email_cliente" class="input_form" autocomplete="off" required/>
+                    </div>
+                    <div class="field_form">
+                        <label for="age_cliente" class="label_form">Edad:  </label>
+                        <input type="number" id="age_cliente" name="age_cliente" class="input_form" min="1" required/>
+                    </div>
+                    <div class="field_form">
+                        <label for="password_cliente" class="label_form">Contraseña: </label>
+                        <input type="password" name="password_cliente" id="password_cliente" class="input_form" required>
+                    </div>
+                    <button class="submit_btn" type="submit">Registrar</button>
                 </form>
             </div>
-            <div id="clientes_registrados">
-                <h1>Clientes Registrados</h1>
-                <table class="tabla_clientes">
+            <div id="clients_table" class="table_results">
+                <h1 class="table_title">Clientes Registrados</h1>
+                <table class="tabla_clientes table_cells">
+                    <tr class="table_headers">
+                        <td class="columna-id-tabla-clientes header-id-tabla-clientes header-tabla-clientes header_id">Id</td>
+                        <td class="columna-name-tabla-clientes header-name-tabla-clientes header-tabla-clientes">Nombre</td>
+                        <td class="columna-email-tabla-clientes header-email-tabla-clientes header-tabla-clientes">Email</td>
+                        <td class="columna-age-tabla-clientes header-age-tabla-clientes header-tabla-clientes">Edad</td>
+                        <td class="columna-options-tabla-clientes header-options-tabla-clientes header-tabla-clientes">Opciones</td>
+                    </tr>
                 </table>
             </div>
         </main>
-        <script src ="js/funcionesClientes.js" type = "text/javascript"></script>
+        <script src ="js/funcionesClientes.js"></script>
+        <script src="js/funcionesAPI.js"></script>
     </body>
 </html>

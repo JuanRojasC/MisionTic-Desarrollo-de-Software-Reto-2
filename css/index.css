@@ -1,29 +1,66 @@
-.links-navegacion a{
-    text-decoration: none;
-    font-weight: bold;
-    background-color: rgb(180, 174, 174);
-    color: black;
-    padding: 2vw;
-    font-size: 3vw;
-    border-radius: 10px;
-    display: inline-block;
-}
-
-.links-navegacion a:hover{
-    border: 2px solid black;
-    background-color: white;
-    color: black;
-}
-
-.links-navegacion{
-   display: flex;
-   justify-content: center;
-   gap: 2vw;
-   margin-top: 20vw;
-}
+@import url('form.css');
+@import url('table.css');
+@import url('clientes.css');
 
 *{
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
+    font-family: sans-serif;
+    background-color: var(--blue-main);
+}
+
+:root{
+    --blue-options: #0ab1ff;
+    --blue-main: rgb(24, 194, 228);
+}
+
+.links-navegacion{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100vw;
+    height: 100vh;
+    padding: 6vw 8vw;
+ }
+
+a.card_option{
+    text-decoration: none;
+    background-color: var(--blue-options);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0vw 1.5vw;
+    width: 20vw;
+    border-radius: 10px;
+}
+
+a.card_option:hover{
+    transform: scale(1.1);
+    background-color: white;
+}
+a.card_option:hover p{
+    color: white;
+}
+a.card_option:hover > img.nav_image{
+    background-color: white;
+}
+
+a.card_option > img.nav_image{
+    width: 8vw;
+    padding: 2.5vw 0vw;
+    background-color: var(--blue-options);
+}
+
+a.card_option p{
+    font-weight: 600;
+    color: black;
+    font-size: 2vw;
+    padding: 0.25vw 0vw;
+    background-color: rgb(190, 184, 184);
+    width: 100%;
+    text-align: center;
+    border-radius: 0px 0px 10px 10px;
 }
