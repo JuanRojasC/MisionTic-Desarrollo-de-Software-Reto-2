@@ -1,6 +1,8 @@
 @import url('form.css');
 @import url('table.css');
 @import url('clientes.css');
+@import url('categorias.css');
+@import url('salon.css');
 
 *{
     margin: 0px;
@@ -13,6 +15,17 @@
 :root{
     --blue-options: #0ab1ff;
     --blue-main: rgb(24, 194, 228);
+}
+
+main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
 }
 
 .links-navegacion{

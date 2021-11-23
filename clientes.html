@@ -27,20 +27,29 @@
                         <label for="password_cliente" class="label_form">Contraseña: </label>
                         <input type="password" name="password_cliente" id="password_cliente" class="input_form" required>
                     </div>
-                    <button class="submit_btn" type="submit">Registrar</button>
+                    <div class="form_buttons">
+                        <button class="submit_btn" type="submit">Registrar</button>
+                        <button class="cancel_btn">Cancelar</button>
+                    </div>
                 </form>
             </div>
             <div id="clients_table" class="table_results">
                 <h1 class="table_title">Clientes Registrados</h1>
-                <table class="tabla_clientes table_cells">
-                    <tr class="table_headers">
-                        <td class="columna-id-tabla-clientes header-id-tabla-clientes header-tabla-clientes header_id">Id</td>
-                        <td class="columna-name-tabla-clientes header-name-tabla-clientes header-tabla-clientes">Nombre</td>
-                        <td class="columna-email-tabla-clientes header-email-tabla-clientes header-tabla-clientes">Email</td>
-                        <td class="columna-age-tabla-clientes header-age-tabla-clientes header-tabla-clientes">Edad</td>
-                        <td class="columna-options-tabla-clientes header-options-tabla-clientes header-tabla-clientes">Opciones</td>
-                    </tr>
-                </table>
+                <div class="table">
+                    <table class="tabla_clientes table_cells">
+                        <thead class="table_headers">
+                            <th class="columna-id-tabla-clientes header-id-tabla-clientes header-tabla-clientes header_id">Id</th>
+                            <th class="columna-name-tabla-clientes header-name-tabla-clientes header-tabla-clientes">Nombre</th>
+                            <th class="columna-email-tabla-clientes header-email-tabla-clientes header-tabla-clientes">Email</th>
+                            <th class="columna-age-tabla-clientes header-age-tabla-clientes header-tabla-clientes">Edad</th>
+                            <th class="columna-options-tabla-clientes header-options-tabla-clientes header-tabla-clientes">Opciones</th>
+                        </thead>
+                        <tbody class="table_body"></tbody>
+                    </table>
+                    <table class="table_without_results">
+                        <thead><th class="without_results">Sin resultados</th></thead>
+                    </table>
+                </div>
             </div>
         </main>
         <script src ="js/funcionesClientes.js"></script>

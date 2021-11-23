@@ -1,5 +1,23 @@
 .table_results{
     margin-left: 8vw;
+    position: relative;
+}
+
+.table_results div.table{
+    max-height: 70vh;
+    overflow-y:scroll;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;
+}
+
+.table_results div.table::-webkit-scrollbar {
+    display: none;
+}
+
+.without_results{
+    width: 50vw;
+    background-color: white;
+    font-weight: lighter;
 }
 
 .table_title{
@@ -13,22 +31,23 @@
 
 .table_cells{
     width: 50vw;
+    overflow-y: scroll;
 }
 
 .table_headers{
-    background-color: black!important;
     color: white;
 }
 
-.table_headers td{
+.table_headers th{
     font-weight: bold;
+    background-color: rgb(228, 222, 222);
 }
 
-.table_cells td{
-    background-color: white;
+td, th{
+    background-color: rgb(255, 255, 255);
     color: black;
     font-size: 1vw;
-    padding: 0.5vw 1vw
+    padding: 0.5vw 1vw;
 }
 
 .header_id{
@@ -43,6 +62,7 @@
     color: black;
     cursor: pointer;
     background-color: white;
+    margin: 0vw 0.1vw;
 }
 
 .table_cells .icon:hover{

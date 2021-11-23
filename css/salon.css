@@ -1,122 +1,27 @@
-*{
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: grey;
-  }
-  
-  main{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-  }
-  
-  .container-formulario{
-    width: 30vw;
-    padding: 1vw 3vw;
-    box-shadow: 2px 2px 2px 2px grey;
-    background-color: white;
-  }
-  
-  .container-formulario h1{
-    text-align: center;
-    font-size: 2vw;
-    margin: 2vw auto;
-    background-color: white;
-  }
-  
-  .formulario-salones{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    background-color: white;
-  }
-  
-  .label-salones{
-    font-weight: bold;
-    display: block;
-    background-color: white;
-  }
-  
-  .input-salones{
-    margin-bottom: 1vw;
-    background-color: white;
-    padding: 0.35vw 0.5vw;
-  }
-  
-  .registrar-salones-boton{
-    display: block;
-    background-color: white;
-    border: 2px solid black;
-    padding: 0.5vw;
-    cursor: pointer;
-    width: 40%;
-    margin: 1vw auto;
-    border-radius: 10px;
-  }
-  
-  #salones_registrados{
-    margin-left: 10vw;
-  }
-  
-  #salones_registrados h1{
-    text-align: center;
-    font-size: 2vw;
-    margin: 1vw auto;
-    background-color: white;
-  }
-  
-  #salones_registrados .tabla_salones{
-    width: 50vw;
-  }
-
-  #salones_registrados .tabla_salones td{
-    font-weight: bold;
-    background-color: white;
-    padding: 0.5vw 1vw
-  }
-  
-  .header-tabla-salones{
-    background-color: black!important;
-    color: white;
-  }
-  
-  .header-id-tabla-salones{
-    width: 5%;
-  }
-
-  .header-owner-tabla-salones{
-    width: 40%;
-  }
-
-.header-capacity-tabla-salones{
-    width: 0.5vw;
+.columna-id-tabla-partyrooms{
+  width: 3vw;
 }
 
-.header-category-tabla-salones{
-    width: 0.5vw;
+.columna-name-tabla-partyrooms{
+  width: 10vw;
 }
-  
-  .header-options-tabla-salones{
-    width: 10vw;
-  }
-  
-  .columna-id-tabla-salones{
-    text-align: center;
-  }
-  
-  .icon{
-    color: black;
-    cursor: pointer;
-    margin-right: 1vw;
-  }
-  
-  .icon:hover{
-    transform: scale(1.5);
-  }
+
+.columna-owner-tabla-partyrooms{
+  width: 0vw;
+}
+
+.columna-category-tabla-partyrooms{
+  width: 0vw;
+}
+
+.columna-description-tabla-partyrooms{
+  width: 15vw;
+}
+
+.columna-capacity-tabla-partyrooms{
+  width: 3vw;
+}
+
+.columna-options-tabla-partyrooms{
+  width: 4vw;
+}

@@ -1,64 +1,66 @@
-<!DOCTYPE html>
-<html lang="es">
-    <head>
-        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <link href="css/salon.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <title>PartyRoom</title>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<!DOCTYPE HTML>
+<html>
+   <head>
         <script src ="js/links.js" type = "text/javascript"></script>
-        <script src ="js/funcionesSalon.js" type = "text/javascript"></script>
+        <title>Salones</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link href="css/index.css" rel="stylesheet">
     </head>
     <body>
-        <!-- <div id="formulario">
-            <h2>Agregar Salon</h2>
-            <form action="">
-                <label for="f_owner">Propietario:</label><br>
-                <input type="text" id="f_owner" name="f_owner" value=""><br>
-                <label for="f_capacity">Capacidad:</label><br>
-                <input type="text" id="f_capacity" name="f_capacity" value=""><br>
-                <label for="F_category">Categoria:</label><br>
-                <select name="F_category">
-                    <option value="value1">Value 1</option>
-                    <option value="value2" selected>Value 2</option>
-                    <option value="value3">Value 3</option>
-                  </select><br>
-                <label for="f_name">Nombre:</label><br>
-                <input type="text" id="f_name" name="f_name" value=""><br>
-                <input type="button" value="Enviar">
-            </form>
-        </div>
-        <br>
-        <div id="vista">
-            <h2>Lista Salones</h2>
-            <button onclick="imprimir2()">Consultar</button>
-            <div id="data"></div>
-            
-        </div> -->
         <main>
-            <div class="container-formulario">
-                <h1>Alquiler de Salones</h1>
-                <form class="formulario-salones" id="formulario-salones" onsubmit="agregarSalon()">
-                    <label for="id_salon" class="label-salones">Id: </label>
-                    <input type="number" id="id_salon" name="id_salon" class="input-salones" required/>
-                    <label for="propietario_salon" class="label-salones">Propietario: </label>
-                    <input type="text" id="propietario_salon" name="propietario_salon" class="input-salones" required/>
-                    <label for="capacity_salon" class="label-salones">Capacidad:  </label>
-                    <input type="text" id="capacity_salon" name="capacity_salon" class="input-salones" required/>
-                    <label for="category_salon" class="label-salones">Categoria:  </label>
-                    <input type="category" id="category_salon" name="category_salon" class="input-salones" required/>
-                    <label for="name_salon" class="label-salones">Nombre:  </label>
-                    <input type="text" id="name_salon" name="name_salon" class="input-salones" required/>
-                    <button class="registrar-salones-boton">Registrar</button>
+            <div class="container-formulario container-data">
+                <form class="formulario_partyrooms form">
+                    <h1 class="form_title">Registro de Salones</h1>
+                    <div class="field_form">
+                        <label for="partyroom_name" class="label_form">Nombre:  </label>
+                        <input type="text" id="partyroom_name" name="partyroom_name" class="input_form" autocomplete="off" required/>
+                    </div>
+                    <div class="field_form">
+                        <label for="partyroom_owner" class="label_form">Propietario:  </label>
+                        <input type="owner" id="partyroom_owner" name="partyroom_owner" class="input_form" autocomplete="off" required/>
+                    </div>
+                    <div class="field_form">
+                        <label for="partyroom_capacity" class="label_form">Capacidad:  </label>
+                        <input type="number" id="partyroom_capacity" name="partyroom_capacity" class="input_form" min="1" required/>
+                    </div>
+                    <div class="field_form">
+                        <label for="partyroom_category" class="label_form">Categoria: </label>
+                        <select name="partyroom_category" id="partyroom_category" class="select_form">
+                            <option disabled selected hidden></option>
+                        </select>
+                    </div>
+                    <div class="field_form">
+                        <label for="partyroom_description" class="label_form">Descripcion:  </label>
+                        <textarea name="partyroom_description" id="partyroom_description" class="text_area_form" maxlength="250"></textarea>
+                    </div>
+                    <div class="form_buttons">
+                        <button class="submit_btn" type="submit">Registrar</button>
+                        <button class="cancel_btn">Cancelar</button>
+                    </div>
                 </form>
             </div>
-            <div id="salones_registrados">
-                <h1>Salones Alquilados</h1>
-                <table class="tabla_salones">
-                </table>
+            <div id="partyrooms_table" class="table_results">
+                <h1 class="table_title">Salones Registrados</h1>
+                <div class="table">
+                    <table class="tabla_partyrooms table_cells">
+                        <thead class="table_headers">
+                            <th class="columna-id-tabla-partyrooms header-id-tabla-partyrooms header-tabla-partyrooms header_id">Id</th>
+                            <th class="columna-name-tabla-partyrooms header-name-tabla-partyrooms header-tabla-partyrooms">Nombre</th>
+                            <th class="columna-owner-tabla-partyrooms header-owner-tabla-partyrooms header-tabla-partyrooms">Propietario</th>
+                            <th class="columna-category-tabla-partyrooms header-category-tabla-partyrooms header-tabla-partyrooms">Categoria</th>
+                            <th class="columna-description-tabla-partyrooms header-description-tabla-partyrooms header-tabla-partyrooms">Descripcion</th>
+                            <th class="columna-capacity-tabla-partyrooms header-capacity-tabla-partyrooms header-tabla-partyrooms">Aforo</th>
+                            <th class="columna-options-tabla-partyrooms header-options-tabla-partyrooms header-tabla-partyrooms">Opciones</th>
+                        </thead>
+                        <tbody class="table_body"></tbody>
+                    </table>
+                    <table class="table_without_results">
+                        <thead><th class="without_results">Sin resultados</th></thead>
+                    </table>
+                </div>
             </div>
         </main>
+        <script src ="js/funcionesSalon.js"></script>
+        <script src="js/funcionesAPI.js"></script>
     </body>
 </html>
