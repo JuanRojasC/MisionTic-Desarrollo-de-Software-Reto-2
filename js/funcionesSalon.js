@@ -4,7 +4,7 @@ window.onload = async function(){
 
 	const tableData = document.querySelector(".table_body")
 	const formPartyroom = document.querySelector(".formulario_partyrooms");
-  const selectCategories = document.querySelector("#partyroom_category");
+  	const selectCategories = document.querySelector("#partyroom_category");
 	var partyroomEditOptions = [];
 	var partyroomDeleteOptions = [];
 	var partyroomViewOptions = [];
@@ -22,24 +22,24 @@ window.onload = async function(){
 				table.innerHTML += formatRowTable(obj);
 			}
 		}else{
-      table.innerHTML = ""
-      document.querySelector(".without_results").style.display = "block";
+      	table.innerHTML = ""
+      	document.querySelector(".without_results").style.display = "block";
     }
-    updatePartyroomOptions();
-    updateSelectCategories();
+    	updatePartyroomOptions();
+    	updateSelectCategories();
 	}
 
-  /*Actualizar las opciones del select*/
-  async function updateSelectCategories(){
-    const options = await listarTodos('http://localhost:8080/api/Category/');
-    if(Symbol.iterator in Object(options) && options.length > 0){
-        options.forEach(option=>{
-          selectCategories.innerHTML += `<option value="${option.id}">${option.name}</option>`
-        })
-    }
-  }
+	/*Actualizar las opciones del select*/
+	async function updateSelectCategories(){
+	const options = await listarTodos('http://localhost:8080/api/Category/');
+	if(Symbol.iterator in Object(options) && options.length > 0){
+		options.forEach(option=>{
+			selectCategories.innerHTML += `<option value="${option.id}">${option.name}</option>`
+		})
+	}
+	}
 
-	/*Crea un nuevo usuario*/
+	/*Crea un nuevo salon*/
 	async function createPartyroom(e){
 		e.preventDefault();
 		e.stopPropagation();
@@ -49,17 +49,18 @@ window.onload = async function(){
 			owner: e.target.partyroom_owner.value,
 			capacity: e.target.partyroom_capacity.value,
 			category: {
-        id: e.target.partyroom_category.value
-      },
-      description: e.target.partyroom_description.value
+       			 id: parseInt(e.target.partyroom_category.value)
+     		},
+     		 description: e.target.partyroom_description.value
 		}
 
 		const response = await crearObjecto(baseUrl, data);
-
+		
 		if(await response.id != null){
-      e.target.reset()
 			document.querySelector(".without_results").style.display = "none";
-			tableData.innerHTML += formatRowTable(await response);
+			response.category.name = e.target.partyroom_category.options[e.target.partyroom_category.selectedIndex].text
+			tableData.innerHTML += formatRowTable(response);
+			e.target.reset()
 			updatePartyroomOptions();
 		}
 
@@ -83,8 +84,8 @@ window.onload = async function(){
 		if(title_form){
 			title_form.innerHTML = "Actualizar Salon"
 		}
-		formPartyroom.querySelectorAll("input").forEach(input => {
-			input.addEventListener("focus", () => submit_btn.classList.replace("btn_disabled", "submit_btn"))
+		formPartyroom.querySelectorAll(".entry_form").forEach(entry => {
+			entry.addEventListener("focus", () => submit_btn.classList.replace("btn_disabled", "submit_btn"))
 		});
 		
 		/*Actualiza los datos de un usuario*/
@@ -98,16 +99,16 @@ window.onload = async function(){
 			e.preventDefault();
 			e.stopPropagation();
 
-      const data = {
-        id: parseInt(id),
-        name: e.target.partyroom_name.value,
-        owner: e.target.partyroom_owner.value,
-        capacity: parseInt(e.target.partyroom_capacity.value),
-        category: {
-          id: e.target.partyroom_category.value
-        },
-        description: e.target.partyroom_description.value
-      }
+			const data = {
+				id: parseInt(id),
+				name: e.target.partyroom_name.value,
+				owner: e.target.partyroom_owner.value,
+				capacity: parseInt(e.target.partyroom_capacity.value),
+				category: {
+					id: parseInt(e.target.partyroom_category.value)
+				},
+				description: e.target.partyroom_description.value
+			}
 
 			const response = await actualizarObjecto(baseUrl, data)
 
@@ -150,7 +151,7 @@ window.onload = async function(){
 			submit_btn.style.display = "none";
 
 			var title_form = formPartyroom.querySelector(".form_title");
-			title_form !== null? title_form.innerHTML = "Salon" : "";
+			title_form !== null? title_form.innerHTML = "Detalles del Salon" : "";
 			
 			var cancel_btn = formPartyroom.querySelector(".cancel_btn");
 			cancel_btn !== null? cancel_btn.innerHTML = "Cerrar" : "";
@@ -160,16 +161,22 @@ window.onload = async function(){
 			
 			const fieldForms = document.querySelectorAll(".field_form");
 			fieldForms.forEach((field, index) => {
-        if(index === 4){
-            field.classList.add("field_form_view_text_area");
-        }else if (index === 3){
-          field.classList.add("field_form_view");
-          field.querySelector("input").classList.replace("input_form", "form_data_view");
-        }else{
-          field.classList.add("field_form_view");
-          field.querySelector("input").classList.replace("input_form", "form_data_view");
-        }
-      })
+				if(index === 4){
+					field.classList.add("field_form_view_text_area");
+					field.querySelector("textarea").readOnly = true;
+				}else{
+					field.classList.add("field_form_view");
+					if(field.querySelector("input")){
+						field.querySelector("input").classList.replace("input_form", "form_data_view");
+						field.querySelector("input").readOnly = true;
+					}
+					if(field.querySelector("select")){
+						field.querySelector("select").style.display = "none";
+						field.querySelector("input").value = data.category.name;
+						field.querySelector("input").style.display = "block"
+					}
+				}
+      		})
 
 			cancel_btn.addEventListener("click", resetForm);
 
@@ -177,17 +184,23 @@ window.onload = async function(){
 			function resetForm(){
 				title_form.innerHTML = "Registro de Salones";
 				assignValuesInputs("", "", "", "","");
-        fieldForms.forEach((field, index) => {
-          if(index === 4){
-            field.classList.remove("field_form_view_text_area");
-          }else if (index === 3){
-            field.classList.remove("field_form_view");
-            field.querySelector("input").classList.replace("form_data_view", "input_form");
-          }else{
-            field.classList.remove("field_form_view");
-            field.querySelector("input").classList.replace("form_data_view", "input_form");
-          }
-        })
+				fieldForms.forEach((field, index) => {
+					if(index === 4){
+						field.classList.remove("field_form_view_text_area");
+						field.querySelector("textarea").readOnly = false;
+					}else{
+						field.classList.remove("field_form_view");
+						if(field.querySelector("input")){
+							field.querySelector("input").classList.replace("form_data_view", "input_form");
+							field.querySelector("input").readOnly = false;
+						}
+						if(field.querySelector("select")){
+							field.querySelector("select").style.display = "block";
+							field.querySelector("input").value = "";
+							field.querySelector("input").style.display = "none"
+						}
+					}
+				  })
 				cancel_btn.removeEventListener("click", resetForm);
 				cancel_btn.style.display = "none";
 				cancel_btn.innerHTML = "Cancelar";
@@ -229,11 +242,11 @@ window.onload = async function(){
 
 	/*asign values to form inputs*/
 	function assignValuesInputs(name, owner, capacity, category, description){
-    formPartyroom.partyroom_name.value = name;
-    formPartyroom.partyroom_owner.value = owner;
-    formPartyroom.partyroom_capacity.value = capacity;
-    formPartyroom.partyroom_category.value = category
-    formPartyroom.partyroom_description.value = description
+		formPartyroom.partyroom_name.value = name;
+		formPartyroom.partyroom_owner.value = owner;
+		formPartyroom.partyroom_capacity.value = capacity;
+		formPartyroom.partyroom_category.value = category
+		formPartyroom.partyroom_description.value = description
 	}
 
 }

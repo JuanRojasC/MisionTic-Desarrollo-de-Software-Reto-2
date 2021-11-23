@@ -13,25 +13,26 @@
                     <h1 class="form_title">Registro de Salones</h1>
                     <div class="field_form">
                         <label for="partyroom_name" class="label_form">Nombre:  </label>
-                        <input type="text" id="partyroom_name" name="partyroom_name" class="input_form" autocomplete="off" required/>
+                        <input type="text" id="partyroom_name" name="partyroom_name" class="input_form entry_form" autocomplete="off" required/>
                     </div>
                     <div class="field_form">
                         <label for="partyroom_owner" class="label_form">Propietario:  </label>
-                        <input type="owner" id="partyroom_owner" name="partyroom_owner" class="input_form" autocomplete="off" required/>
+                        <input type="owner" id="partyroom_owner" name="partyroom_owner" class="input_form entry_form" autocomplete="off" required/>
                     </div>
                     <div class="field_form">
                         <label for="partyroom_capacity" class="label_form">Capacidad:  </label>
-                        <input type="number" id="partyroom_capacity" name="partyroom_capacity" class="input_form" min="1" required/>
+                        <input type="number" id="partyroom_capacity" name="partyroom_capacity" class="input_form entry_form" min="1" required/>
                     </div>
                     <div class="field_form">
                         <label for="partyroom_category" class="label_form">Categoria: </label>
-                        <select name="partyroom_category" id="partyroom_category" class="select_form">
+                        <select name="partyroom_category" id="partyroom_category" class="select_form entry_form" required>
                             <option disabled selected hidden></option>
                         </select>
+                        <input type="text" id="partyroom_category_input" name="partyroom_category_input" class="input_form entry_form" style="display: none"/>
                     </div>
                     <div class="field_form">
                         <label for="partyroom_description" class="label_form">Descripcion:  </label>
-                        <textarea name="partyroom_description" id="partyroom_description" class="text_area_form" maxlength="250"></textarea>
+                        <textarea name="partyroom_description" id="partyroom_description" class="text_area_form entry_form" maxlength="250"></textarea>
                     </div>
                     <div class="form_buttons">
                         <button class="submit_btn" type="submit">Registrar</button>

@@ -1,46 +1,60 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Gestion de Mensajes</title>
-    <link rel="stylesheet" href="css/mensajes.css" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script src ="js/links.js" type = "text/javascript"></script>
-    <script type="text/javascript" src="js/funcionesMensajes.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  </head>
-  <body>
-    <!-- <section>
-      <h2>Mensajes</h2>
-      <div id="messages" class="contenedor-mensajes"></div>
-      <div>
-        <h2>Ivan</h2>
-        <form onsubmit="añadirMesanje()">
-          <textarea id="messagetext" cols="32" rows="6" placeholder="Escribe tu mensaje aquí"></textarea>
-          <button onclick="añadirMensaje()">Enviar</button>
-        </form>
-      </div>
-      <div id="message-detail" class="contenedor-mensajes"></div>
-    </section> -->
-    <main>
-      <div class="container-formulario">
-          <h1>Registro de Mensajes</h1>
-          <form class="formulario-mensajes" id="formulario-mensajes">
-            <label for="message_id" class="label-mensajes">ID: </label>
-            <input type="number" id="message_id" name="message_id" class="input-mensajes"/>
-            <label class="label-mensajes">Mensaje: </label>
-            <textarea id="messagetext" cols="32" rows="6" placeholder="Escribe tu mensaje aquí" class="label-mensajes"></textarea>
-            <button class="registrar-mensajes-boton">Registrar</button>
-          </form>
-      </div>
-      <div id="mensajes_registrados">
-          <h1>Registro de Mensajes</h1>
-          <table class="tabla_mensajes">
-          </table>
-      </div>
-    </main>
-  </body>
+<!DOCTYPE HTML>
+<html>
+   <head>
+        <script src ="js/links.js" type = "text/javascript"></script>
+        <title>Mensajes</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link href="css/index.css" rel="stylesheet">
+    </head>
+    <body>
+        <main>
+            <div class="container-formulario container-data">
+                <form class="formulario_messages form">
+                    <h1 class="form_title">Registro de Mensajes</h1>              
+                    <div class="field_form">
+                        <label for="message_client" class="label_form">Cliente: </label>
+                        <select name="message_client" id="message_client" class="select_form entry_form" required>
+                            <option disabled selected hidden></option>
+                        </select>
+                        <input type="text" id="message_client_input" name="message_client_input" class="input_form entry_form" style="display: none"/>
+                    </div>
+                    <div class="field_form">
+                        <label for="message_partyroom" class="label_form">Salon: </label>
+                        <select name="message_partyroom" id="message_partyroom" class="select_form entry_form" required>
+                            <option disabled selected hidden></option>
+                        </select>
+                        <input type="text" id="message_partyroom_input" name="message_partyroom_input" class="input_form entry_form" style="display: none"/>
+                    </div>
+                    <div class="field_form">
+                      <label for="message_message" class="label_form">Descripcion:  </label>
+                      <textarea name="message_message" id="message_message" class="text_area_form entry_form" maxlength="250"></textarea>
+                    </div>
+                    <div class="form_buttons">
+                        <button class="submit_btn" type="submit">Registrar</button>
+                        <button class="cancel_btn">Cancelar</button>
+                    </div>
+                </form>
+            </div>
+            <div id="messages_table" class="table_results">
+                <h1 class="table_title">Mensajes Registrados</h1>
+                <div class="table">
+                    <table class="tabla_messages table_cells">
+                        <thead class="table_headers">
+                            <th class="columna-id-tabla-messages header-id-tabla-messages header-tabla-messages header_id">Id</th>
+                            <th class="columna-client-tabla-messages header-name-tabla-messages header-tabla-messages">Cliente</th>
+                            <th class="columna-partyroom-tabla-messages header-owner-tabla-messages header-tabla-messages">Salon</th>
+                            <th class="columna-message-tabla-messages header-category-tabla-messages header-tabla-messages">Mensaje</th>
+                            <th class="columna-options-tabla-messages header-options-tabla-messages header-tabla-messages">Opciones</th>
+                        </thead>
+                        <tbody class="table_body"></tbody>
+                    </table>
+                    <table class="table_without_results">
+                        <thead><th class="without_results">Sin resultados</th></thead>
+                    </table>
+                </div>
+            </div>
+        </main>
+        <script src ="js/funcionesMensajes.js"></script>
+        <script src="js/funcionesAPI.js"></script>
+    </body>
 </html>

@@ -27,6 +27,7 @@
     width: 100%;
 }
 
+/*label*/
 .label_form{
     font-weight: bold;
     display: block;
@@ -34,6 +35,7 @@
     font-size: 1vw;
 }
 
+/*input*/
 .input_form{
     background-color: white;
     padding: 0.5vw 0vw 0.1vw 0vw;
@@ -45,6 +47,7 @@
     border-bottom: 2px solid black;
 }
 
+/*select*/
 .select_form{
     background: white;
     width: 100%;
@@ -56,6 +59,7 @@
     border-bottom: 2px solid black;
 }
 
+/*text area*/
 .text_area_form{
     background-color: white;
     border: 2px solid black;
@@ -71,10 +75,13 @@
     background-color: white;
 }
 
-.input_form:focus, .text_area_form:focus, .select_form:focus{
+.text_area_form:focus{
+    outline: none;
+    border: 2px solid var(--blue-options);
+}
+.input_form:focus, .select_form:focus{
     outline: none;
     border-bottom: 2px solid var(--blue-options);
-    background-color: white;
 }
 .field_form:focus-within .label_form{
     color: var(--blue-options);
@@ -116,12 +123,13 @@
     filter: opacity(0.5);
 }
 
+/*Field form with input view*/
 .field_form_view{
     display: flex;
     justify-content: space-between;
 }
-
-.form_data_view{
+.form_data_view, .form_select_view{
+    width: 50%;
     background-color: white;
     font-size: 1vw;
     padding: 0vw 0vw 0.1vw 0vw;
@@ -130,11 +138,14 @@
 .form_data_view:focus{
     outline: none;
 }
+
+/*Field form with text area view*/
 .field_form_view_text_area .text_area_form:focus{
     outline: none;
 }
-
 .field_form_view_text_area textarea{
     border: none;
     padding: 0vw;
+    height: fit-content;
 }
+

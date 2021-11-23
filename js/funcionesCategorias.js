@@ -66,10 +66,9 @@ window.onload = async function(){
 		if(title_form){
 			title_form.innerHTML = "Actualizar Categoria"
 		}
-		formCategories.querySelectorAll("input").forEach(input => {
-			input.addEventListener("focus", () => submit_btn.classList.replace("btn_disabled", "submit_btn"));
+		formPartyroom.querySelectorAll(".entry_form").forEach(entry => {
+			entry.addEventListener("focus", () => submit_btn.classList.replace("btn_disabled", "submit_btn"))
 		});
-        formCategories.querySelector("textarea").addEventListener("focus", () => submit_btn.classList.replace("btn_disabled", "submit_btn"))
 		
 		/*Actualiza los datos de una categoria*/
 		formCategories.removeEventListener("submit", createCategory);
