@@ -1,19 +1,21 @@
-.columna-id-tabla-reservas{
+.columna-id-tabla-bookings{
     width: 4vw;
 }
-
-.columna-name-tabla-reservas{
-    width: 19vw;
+.columna-start_time-tabla-bookings{
+    width: 4vw;
 }
-
-.columna-email-tabla-reservas{
-    width: 17vw;
+.columna-finish_time-tabla-bookings{
+    width: 4vw;
 }
-
-.columna-age-tabla-reservas{
+.columna-partyroom-tabla-bookings{
     width: 5vw;
 }
-
-.columna-options-tabla-reservas{
+.columna-client-tabla-bookings{
     width: 5vw;
+}
+.columna-status-tabla-bookings{
+    width: 4vw;
+}
+.columna-options-tabla-bookings{
+    width: 4vw;
 }

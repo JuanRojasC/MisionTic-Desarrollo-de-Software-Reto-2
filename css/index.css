@@ -3,6 +3,7 @@
 @import url('clientes.css');
 @import url('categorias.css');
 @import url('salon.css');
+@import url('reservas.css');
 
 *{
     margin: 0px;

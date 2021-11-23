@@ -12,33 +12,45 @@
                 <form class="formulario_reservas form">
                     <h1 class="form_title">Registro de Reservas</h1>
                     <div class="field_form">
-                        <label for="fecha_inicio" class="label_form">Fecha inicio:  </label>
-                        <input type="date" id="fecha_inicio" name="fecha_inicio" class="input_form" autocomplete="off" required/>
+                        <label for="booking_start_date" class="label_form">Fecha inicio:  </label>
+                        <input type="datetime-local" id="booking_start_date" name="booking_start_date" class="input_form entry_form" autocomplete="off" required/>
                     </div>
                     <div class="field_form">
-                        <label for="fecha_entrega" class="label_form">Fecha entrega:  </label>
-                        <input type="date" id="fecha_entrega" name="fecha_entrega" class="input_form" autocomplete="off" required/>
+                        <label for="booking_finish_date" class="label_form">Fecha entrega:  </label>
+                        <input type="datetime-local" id="booking_finish_date" name="booking_finish_date" class="input_form entry_form" autocomplete="off" required/>
                     </div>
                     <div class="field_form">
-                        <label for="estado" class="label_form">Estado:  </label>
-                        <input type="text" id="estado" name="estado" class="input_form" min="1" required/>
+                        <label for="booking_client" class="label_form">Cliente: </label>
+                        <select name="booking_client" id="booking_client" class="select_form entry_form" required>
+                            <option disabled selected hidden></option>
+                        </select>
+                        <input type="text" id="booking_client_input" name="booking_client_input" class="input_form" style="display: none"/>
+                    </div>
+                    <div class="field_form">
+                        <label for="booking_partyroom" class="label_form">Salon: </label>
+                        <select name="booking_partyroom" id="booking_partyroom" class="select_form entry_form" required>
+                            <option disabled selected hidden></option>
+                        </select>
+                        <input type="text" id="booking_partyroom_input" name="booking_partyroom_input" class="input_form" style="display: none"/>
                     </div>
                     <div class="form_buttons">
-                        <button class="submit_btn" type="submit">Registrar</button>
+                        <button class="submit_btn" type="submit">Reservar</button>
                         <button class="cancel_btn">Cancelar</button>
                     </div>
                 </form>
             </div>
-            <div id="reservas_table" class="table_results">
+            <div id="bookings_table" class="table_results">
                 <h1 class="table_title">Reservas Registradas</h1>
                 <div class="table">
-                    <table class="tabla_reservas table_cells">
+                    <table class="tabla_bookings table_cells">
                         <thead class="table_headers">
-                            <th class="columna-id-tabla-reservas header-id-tabla-reservas header-tabla-reservas header_id">Id Reserva</th>
-                            <th class="columna-name-tabla-reservas header-name-tabla-reservas header-tabla-reservas">Fecha inicio</th>
-                            <th class="columna-email-tabla-reservas header-email-tabla-reservas header-tabla-reservas">Fecha entrega</th>
-                            <th class="columna-age-tabla-reservas header-age-tabla-reservas header-tabla-reservas">Estado</th>
-                            <th class="columna-options-tabla-reservas header-options-tabla-reservas header-tabla-reservas">Opciones</th>
+                            <th class="columna-id-tabla-bookings header-id-tabla-bookings header-tabla-bookings header_id">Id</th>
+                            <th class="columna-start_time-tabla-bookings header-name-tabla-bookings header-tabla-bookings">Check-In</th>
+                            <th class="columna-finish_time-tabla-bookings header-email-tabla-bookings header-tabla-bookings">Check-Out</th>
+                            <th class="columna-partyroom-tabla-bookings header-age-tabla-bookings header-tabla-bookings">Salon</th>
+                            <th class="columna-client-tabla-bookings header-age-tabla-bookings header-tabla-bookings">Cliente</th>
+                            <th class="columna-status-tabla-bookings header-age-tabla-bookings header-tabla-bookings">Estado</th>
+                            <th class="columna-options-tabla-bookings header-options-tabla-bookings header-tabla-bookings">Opciones</th>
                         </thead>
                         <tbody class="table_body"></tbody>
                     </table>
