@@ -4,6 +4,7 @@
 @import url('categorias.css');
 @import url('salon.css');
 @import url('reservas.css');
+@import url('usuarios.css');
 
 *{
     margin: 0px;

@@ -1,4 +1,4 @@
-const baseUrl = 'http://localhost:8080/api/Reservation/'
+const baseUrl = 'http://132.226.254.141:8080/api/Reservation/'
 
 window.onload = async function(){
 
@@ -33,7 +33,7 @@ window.onload = async function(){
 
 	/*Actualizar las opciones del select de mensajes*/
 	async function updateSelectClients(){
-		const options = await listarTodos('http://localhost:8080/api/Client/');
+		const options = await listarTodos('http://132.226.254.141:8080/api/Client/');
 		if(Symbol.iterator in Object(options) && options.length > 0){
 			options.forEach(option=>{
 			selectClients.innerHTML += `<option value="${option.idClient}">${option.name}</option>`
@@ -43,7 +43,7 @@ window.onload = async function(){
 		
 		/*Actualizar las opciones del select de salones*/
 		async function updateSelectPartyrooms(){
-		const options = await listarTodos('http://localhost:8080/api/Partyroom/');
+		const options = await listarTodos('http://132.226.254.141:8080/api/Partyroom/');
 		if(Symbol.iterator in Object(options) && options.length > 0){
 			options.forEach(option=>{
 			selectPartyrooms.innerHTML += `<option value="${option.id}">${option.name}</option>`
@@ -56,6 +56,11 @@ window.onload = async function(){
 		e.preventDefault();
 		e.stopPropagation();
 
+		if(new Date(e.target.booking_start_date.value).getTime() >= (new Date(e.target.booking_finish_date.value).getTime())){
+			alert("La fecha de inicio no puede ser despues o igual a la fecha de finalizacion");
+			return;
+		}
+
 		const data = {
 			startDate: e.target.booking_start_date.value,
 			devolutionDate: e.target.booking_finish_date.value,
@@ -64,7 +69,8 @@ window.onload = async function(){
 			},
 			partyroom: {
 				id: parseInt(e.target.booking_partyroom.value)
-			}
+			},
+			status: "Programado"
 		}
 
 		const response = await crearObjecto(baseUrl, data);
@@ -101,6 +107,7 @@ window.onload = async function(){
 		formReservation.querySelectorAll(".entry_form").forEach(entry => {
 			entry.addEventListener("focus", () => submit_btn.classList.replace("btn_disabled", "submit_btn"))
 		});
+		formReservation.querySelector(".field_form_status").style.display = "block";
 
 		/*Actualiza los datos de un usuario*/
 		formReservation.removeEventListener("submit", createReservation);
@@ -122,7 +129,8 @@ window.onload = async function(){
 				},
 				partyroom: {
 					id: parseInt(e.target.booking_partyroom.value)
-				}
+				},
+				status: e.target.booking_status.value? e.target.booking_status.value : "Programado"
 			}
 
 			const response = await actualizarObjecto(baseUrl, data)
@@ -143,13 +151,14 @@ window.onload = async function(){
 			cancel_btn.removeEventListener("click", resetForm);
 			cancel_btn.style.display = "none";
 			submit_btn.innerHTML = "Registrar";
+			formReservation.querySelector(".field_form_status").style.display = "none";
 			formOptionActive = false;
 		}
 	}
 
-	/*Eliminar cliente*/
+	/*Eliminar reserva*/
 	async function deleteBooking(id){
-		if(confirm("Seguro que desea eliminar este cliente")){
+		if(confirm("Seguro que desea eliminar esta reserva")){
 			const response = await eliminarObjecto(baseUrl, id);
 			if(await response === 204){
 				updateTable(tableData);
@@ -157,7 +166,7 @@ window.onload = async function(){
 		}
 	}
 
-	/*Vista detalle del cliente*/
+	/*Vista detalle de la reserva*/
 	async function viewDetails(id){
 		formOptionActive = true;
 		const data = await buscarObjeto(baseUrl, id);
@@ -172,8 +181,9 @@ window.onload = async function(){
 			cancel_btn !== null? cancel_btn.innerHTML = "Cerrar" : "";
 			cancel_btn.style.display = "inline-block";
 
-			assignValuesInputs(data.startDate, data.devolutionDate, data.client, data.partyroom);
+			assignValuesInputs(data.startDate, data.devolutionDate, data.client, data.partyroom, data.status);
 			
+			formReservation.querySelector(".field_form_status").style.display = "flex";
 			const fieldForms = document.querySelectorAll(".field_form");
             fieldForms.forEach(field => {
                 if (field.querySelector("textarea")) {
@@ -196,7 +206,7 @@ window.onload = async function(){
 
 			/*Reseteo del formulario*/
 			function resetForm(){
-				title_form.innerHTML = "Registro de Clientes";
+				title_form.innerHTML = "Registro de Reservas";
 				assignValuesInputs("", "", "", "");
 				fieldForms.forEach(field => {
                     if (field.querySelector("textarea")) {
@@ -219,6 +229,7 @@ window.onload = async function(){
 				cancel_btn.style.display = "none";
 				cancel_btn.innerHTML = "Cancelar";
 				submit_btn.style.display = "inline-block";
+				formReservation.querySelector(".field_form_status").style.display = "none";
 				formOptionActive = false;
 			}
 
@@ -236,32 +247,34 @@ window.onload = async function(){
 			<td class="columna-client-tabla-bookings">${data.client.name}</td>
 			<td class="columna-status-tabla-bookings">${data.status}</td>
 			<td class="columna-options-tabla-bookings">
-				<i class="far fa-edit vista-icon icon edit_client" data-id="${data.idReservation}"></i>
-				<i class="fas fa-trash-alt eliminar_icon icon delete_client" data-id="${data.idReservation}"></i>
-				<i class="far fa-window-maximize view_icon icon view_client" data-id="${data.idReservation}"></i>
+				<i class="far fa-edit vista-icon icon edit_booking" data-id="${data.idReservation}"></i>
+				<i class="fas fa-trash-alt eliminar_icon icon delete_booking" data-id="${data.idReservation}"></i>
+				<i class="far fa-window-maximize view_icon icon view_booking" data-id="${data.idReservation}"></i>
 			</td>
 		</tr>
 		`
 	}
 
-	/*Mantiene actualizado el numero de botones de actualizar y eliminar de cada cliente*/
+	/*Mantiene actualizado el numero de botones de actualizar y eliminar de cada reserva*/
 	function updateReservationsOptions(){
-		bookingsEditOption = document.querySelectorAll(".edit_client");
-		bookingsDeleteOption = document.querySelectorAll(".delete_client");
-		bookingsViewOption = document.querySelectorAll(".view_client");
+		bookingsEditOption = document.querySelectorAll(".edit_booking");
+		bookingsDeleteOption = document.querySelectorAll(".delete_booking");
+		bookingsViewOption = document.querySelectorAll(".view_booking");
 		bookingsEditOption.forEach(btn => btn.addEventListener("click", () => formOptionActive? "" : updateReservation(btn.getAttribute("data-id"))));
 		bookingsDeleteOption.forEach(btn => btn.addEventListener("click", () => deleteBooking(btn.getAttribute("data-id"))));
 		bookingsViewOption.forEach(btn => btn.addEventListener("click", () => formOptionActive? "" : viewDetails(btn.getAttribute("data-id"))));
 	}
 
 	/*asign values to form inputs*/
-	function assignValuesInputs(startDate, devolutionDate, client, partyroom){
+	function assignValuesInputs(startDate, devolutionDate, client, partyroom, status){
 		formReservation.booking_start_date.value = startDate.split(":00.")[0];
 		formReservation.booking_finish_date.value = devolutionDate.split(":00.")[0];
 		formReservation.booking_client.value = client.idClient;
 		formReservation.booking_partyroom.value = partyroom.id;
 		formReservation.booking_client_input.value = client.name;
 		formReservation.booking_partyroom_input.value = partyroom.name;
+		formReservation.booking_status.value = status;
+		formReservation.booking_status_input.value = status;
 	}
 
 }

@@ -1,20 +1,14 @@
 .columna-id-tabla-bookings{
-    width: 4vw;
+    width: 1vw;
 }
 .columna-start_time-tabla-bookings{
-    width: 4vw;
+    width: 7.5vw;
 }
 .columna-finish_time-tabla-bookings{
-    width: 4vw;
-}
-.columna-partyroom-tabla-bookings{
-    width: 5vw;
-}
-.columna-client-tabla-bookings{
-    width: 5vw;
+    width: 7.5vw;
 }
 .columna-status-tabla-bookings{
-    width: 4vw;
+    width: 3vw;
 }
 .columna-options-tabla-bookings{
     width: 4vw;

@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html>
+   <head>
+        <script src ="js/links.js" type = "text/javascript"></script>
+        <title>Usuarios</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link href="css/index.css" rel="stylesheet">
+    </head>
+    <body>
+        <main>
+            <div class="container-formulario container-data">
+                <form class="formulario_users form">
+                    <h1 class="form_title">Registro de Usuarios</h1>
+                    <div class="field_form">
+                        <label for="user_name" class="label_form">Nombre:  </label>
+                        <input type="text" id="user_name" name="user_name" class="input_form entry_form" autocomplete="off" required/>
+                    </div>
+                    <div class="field_form">
+                        <label for="user_email" class="label_form">Email:  </label>
+                        <input type="email" id="user_email" name="user_email" class="input_form entry_form" autocomplete="off" required/>
+                    </div>
+                    <div class="field_form">
+                        <label for="user_password" class="label_form">Contraseña: </label>
+                        <input type="password" name="user_password" id="user_password" class="input_form entry_form" required>
+                    </div>
+                    <div class="form_buttons">
+                        <button class="submit_btn" type="submit">Reservar</button>
+                        <button class="cancel_btn">Cancelar</button>
+                    </div>
+                </form>
+            </div>
+            <div id="users_table" class="table_results">
+                <h1 class="table_title">Usuarios Registrados</h1>
+                <div class="table">
+                    <table class="tabla_users table_cells">
+                        <thead class="table_headers">
+                            <th class="columna-id-tabla-users header-id-tabla-users header-tabla-users header_id">Id</th>
+                            <th class="columna-name-tabla-users header-name-tabla-users header-tabla-users">Name</th>
+                            <th class="columna-email-tabla-users header-email-tabla-users header-tabla-users">Email</th>
+                            <th class="columna-options-tabla-users header-options-tabla-users header-tabla-users">Opciones</th>
+                        </thead>
+                        <tbody class="table_body"></tbody>
+                    </table>
+                    <table class="table_without_results">
+                        <thead><th class="without_results">Sin resultados</th></thead>
+                    </table>
+                </div>
+            </div>
+        </main>
+        <script src ="js/funcionesUsuarios.js"></script>
+        <script src="js/funcionesAPI.js"></script>
+    </body>
+</html>

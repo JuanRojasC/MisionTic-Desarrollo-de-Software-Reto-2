@@ -1,4 +1,4 @@
-const baseUrl = 'http://localhost:8080/api/Client/'
+const baseUrl = 'http://132.226.254.141:8080/api/Client/'
 
 window.onload = async function(){
 
