@@ -1,4 +1,4 @@
-const baseUrl = 'http://132.226.254.141:8080//api/Category/'
+const baseUrl = 'http://150.230.92.110:8080//api/Category/'
 
 window.onload = async function(){
 

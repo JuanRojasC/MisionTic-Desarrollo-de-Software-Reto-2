@@ -1,4 +1,4 @@
-const baseUrl = 'http://132.226.254.141:8080/api/Admin/'
+const baseUrl = 'http://150.230.92.110:8080/api/Admin/'
 
 window.onload = async function(){
 

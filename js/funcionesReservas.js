@@ -1,4 +1,4 @@
-const baseUrl = 'http://132.226.254.141:8080/api/Reservation/'
+const baseUrl = 'http://150.230.92.110:8080/api/Reservation/'
 
 window.onload = async function(){
 
@@ -33,7 +33,7 @@ window.onload = async function(){
 
 	/*Actualizar las opciones del select de mensajes*/
 	async function updateSelectClients(){
-		const options = await listarTodos('http://132.226.254.141:8080/api/Client/');
+		const options = await listarTodos('http://150.230.92.110:8080/api/Client/');
 		if(Symbol.iterator in Object(options) && options.length > 0){
 			options.forEach(option=>{
 			selectClients.innerHTML += `<option value="${option.idClient}">${option.name}</option>`
@@ -43,7 +43,7 @@ window.onload = async function(){
 		
 		/*Actualizar las opciones del select de salones*/
 		async function updateSelectPartyrooms(){
-		const options = await listarTodos('http://132.226.254.141:8080/api/Partyroom/');
+		const options = await listarTodos('http://150.230.92.110:8080/api/Partyroom/');
 		if(Symbol.iterator in Object(options) && options.length > 0){
 			options.forEach(option=>{
 			selectPartyrooms.innerHTML += `<option value="${option.id}">${option.name}</option>`
