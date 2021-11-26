@@ -41,7 +41,7 @@ window.onload = async function(){
 
 		const response = await crearObjecto(baseUrl, data);
 
-		if(await response.idClient != null){
+		if(await response != null){
 			e.target.reset();
 			document.querySelector(".without_results").style.display = "none";
 			tableData.innerHTML += formatRowTable(await response);
@@ -93,7 +93,7 @@ window.onload = async function(){
 
 			const response = await actualizarObjecto(baseUrl, data)
 
-			if(await response.id !== null){
+			if(await response !== null && await response !== undefined){
 				/*Restablece el formulario*/
 				resetForm();
 				updateTable(tableData);

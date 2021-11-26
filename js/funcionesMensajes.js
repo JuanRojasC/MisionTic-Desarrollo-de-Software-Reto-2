@@ -1,4 +1,4 @@
-const baseUrl = 'http://http://132.226.254.141:8080//api/Message/'
+const baseUrl = 'http://132.226.254.141:8080//api/Message/'
 
 window.onload = async function() {
 
@@ -68,7 +68,7 @@ window.onload = async function() {
 
         const response = await crearObjecto(baseUrl, data);
 
-        if (await response != null) {
+        if (await response !== null && await response !== undefined) {
             document.querySelector(".without_results").style.display = "none";
             response.client.name = e.target.message_client.options[e.target.message_client.selectedIndex].text
             response.partyroom.name = e.target.message_partyroom.options[e.target.message_partyroom.selectedIndex].text
@@ -125,7 +125,7 @@ window.onload = async function() {
 
             const response = await actualizarObjecto(baseUrl, data)
 
-            if (await response.id !== null) {
+            if (await response !== null && await response !== undefined) {
                 /*Restablece el formulario*/
                 resetForm();
                 updateTable(tableData);

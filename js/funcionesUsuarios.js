@@ -91,7 +91,7 @@ window.onload = async function(){
 
 			const response = await actualizarObjecto(baseUrl, data)
 
-			if (await response !== null) {
+			if (await response !== null && await response !== undefined) {
 				/*Restablece el formulario*/
 				resetForm();
 				updateTable(tableData);

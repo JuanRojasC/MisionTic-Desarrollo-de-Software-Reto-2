@@ -39,7 +39,7 @@ window.onload = async function(){
 
 		const response = await crearObjecto(baseUrl, data);
 
-		if(await response.id != null){
+		if(await response != null){
 			e.target.reset();
 			document.querySelector(".without_results").style.display = "none";
 			tableData.innerHTML += formatRowTable(await response);
@@ -66,7 +66,7 @@ window.onload = async function(){
 		if(title_form){
 			title_form.innerHTML = "Actualizar Categoria"
 		}
-		formPartyroom.querySelectorAll(".entry_form").forEach(entry => {
+		formCategories.querySelectorAll(".entry_form").forEach(entry => {
 			entry.addEventListener("focus", () => submit_btn.classList.replace("btn_disabled", "submit_btn"))
 		});
 		
@@ -89,7 +89,7 @@ window.onload = async function(){
 
 			const response = await actualizarObjecto(baseUrl, data)
 
-			if(await response.id !== null){
+			if(await response !== null && await response !== undefined){
 				/*Restablece el formulario*/
 				resetForm();
 				updateTable(tableData);

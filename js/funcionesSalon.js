@@ -56,7 +56,7 @@ window.onload = async function(){
 
 		const response = await crearObjecto(baseUrl, data);
 		
-		if(await response.id != null){
+		if(await response != null){
 			document.querySelector(".without_results").style.display = "none";
 			response.category.name = e.target.partyroom_category.options[e.target.partyroom_category.selectedIndex].text
 			tableData.innerHTML += formatRowTable(response);
@@ -112,7 +112,7 @@ window.onload = async function(){
 
 			const response = await actualizarObjecto(baseUrl, data)
 
-			if(await response.id !== null){
+			if(await response !== null && await response !== undefined){
 				/*Restablece el formulario*/
 				resetForm();
 				updateTable(tableData);

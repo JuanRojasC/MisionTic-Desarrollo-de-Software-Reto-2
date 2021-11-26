@@ -120,6 +120,11 @@ window.onload = async function(){
 			e.preventDefault();
 			e.stopPropagation();
 
+			if(new Date(e.target.booking_start_date.value).getTime() >= (new Date(e.target.booking_finish_date.value).getTime())){
+				alert("La fecha de inicio no puede ser despues o igual a la fecha de finalizacion");
+				return;
+			}
+
 			const data = {
 				idReservation: parseInt(id),
 				startDate: e.target.booking_start_date.value,
@@ -135,7 +140,7 @@ window.onload = async function(){
 
 			const response = await actualizarObjecto(baseUrl, data)
 
-			if (await response.id !== null) {
+			if (await response !== null && await response !== undefined) {
 				/*Restablece el formulario*/
 				resetForm();
 				updateTable(tableData);
