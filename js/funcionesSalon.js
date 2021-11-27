@@ -19,6 +19,7 @@ window.onload = async function(){
 			document.querySelector(".without_results").style.display = "none";
 			table.innerHTML = "";
 			for(var obj of await data){
+				console.log(obj)
 				table.innerHTML += formatRowTable(obj);
 			}
 		}else{
@@ -218,7 +219,7 @@ window.onload = async function(){
 			<td class="columna-id-tabla-partyrooms column_id">${data.id}</td>
 			<td class="columna-name-tabla-partyrooms">${data.name}</td>
 			<td class="columna-owner-tabla-partyrooms">${data.owner}</td>
-			<td class="columna-category-tabla-partyrooms">${data.category.name}</td>
+			<td class="columna-category-tabla-partyrooms">${data.category? data.category.name : null}</td>
 			<td class="columna-description-tabla-partyrooms">${data.description}</td>
 			<td class="columna-capacity-tabla-partyrooms">${data.capacity}</td>
 			<td class="columna-options-tabla-partyrooms">
