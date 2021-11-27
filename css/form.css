@@ -36,23 +36,11 @@
 }
 
 /*input*/
-.input_form{
+.input_form, .select_form{
     background-color: white;
     padding: 0.5vw 0vw 0.1vw 0vw;
     width: 100%;
     font-size: 1vw;
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    border-bottom: 2px solid black;
-}
-
-/*select*/
-.select_form{
-    background: white;
-    width: 100%;
-    font-size: 1vw;
-    padding: 0.5vw 0vw 0.1vw 0vw;
     border-top: none;
     border-left: none;
     border-right: none;

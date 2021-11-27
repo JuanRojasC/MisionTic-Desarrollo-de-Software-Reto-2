@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./css/index.css">
+    <title>Top Clientes</title>
+</head>
+<body>
+    <header>
+        <a href="./informes.html" class="header_btn link_header">
+            <i class="fas fa-chevron-circle-left header_icon"></i>
+            Informes
+        </a>
+    </header>
+    <main>
+        <section class="links-navegacion">
+            <h2 class="title_section"><i class="far fa-chart-bar header_icon chart_icon"></i> Panel de Informes</h2>
+            <div class="report_logo_div">
+                <div class="card_report">
+                    <p class="title_report">Reservas</p>
+                    <img src="./img/best_clients.png" alt="clients" class="nav_image">
+                    <p class="description_report">Mejores Clientes</p>
+                </div>
+            </div>
+            <div id="top_clients_table" class="table_results">
+                <h1 class="table_title">Ranking de Clientes</h1>
+                <div class="table">
+                    <table class="tabla_clientes_top table_cells">
+                        <thead class="table_headers">
+                            <th class="columna-id-tabla-clientes header-id-tabla-clientes header-tabla-clientes header_id">Id</th>
+                            <th class="columna-name-tabla-clientes header-name-tabla-clientes header-tabla-clientes">Nombre</th>
+                            <th class="columna-email-tabla-clientes header-email-tabla-clientes header-tabla-clientes">Email</th>
+                            <th class="columna-bookings-tabla-clientes header-email-tabla-clientes header-tabla-clientes">Reservas</th>
+                        </thead>
+                        <tbody class="table_body"></tbody>
+                    </table>
+                    <table class="table_without_results">
+                        <thead><th class="without_results">Sin resultados</th></thead>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src ="js/funcionesInformes.js"></script>
+    <script src="js/funcionesAPI.js"></script>
+</body>
+</html>

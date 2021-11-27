@@ -5,6 +5,7 @@
 @import url('salon.css');
 @import url('reservas.css');
 @import url('usuarios.css');
+@import url('informes.css');
 
 *{
     margin: 0px;
@@ -12,6 +13,7 @@
     box-sizing: border-box;
     font-family: sans-serif;
     background-color: var(--blue-main);
+    text-decoration: none;
 }
 
 :root{
@@ -30,6 +32,38 @@ main{
     transform: translate(-50%, -50%);
 }
 
+
+.header_btn{
+    position: absolute;
+    z-index: 1000;
+    top: 1vw;
+    right: 3vw;
+    font-size: 1.3vw;
+    font-weight: bold;
+    color: black;
+    background-color: var(--blue-options);
+    padding: 0.2vw 0.75vw;
+    border-radius: 10px;
+}
+.link_header{
+    color: black;
+}
+.chart_icon{
+    background-color: var(--blue-options);
+    transform: rotate(90deg) scaleX(-1);
+}
+.header_btn:hover{
+    color: white;
+    cursor: pointer;
+    transform: scale(1.1);
+}
+.header_btn:hover .link_header{
+    color: white;
+}
+.header_icon{
+    background-color: var(--blue-options);
+}
+
 .links-navegacion{
     display: flex;
     justify-content: center;
@@ -40,7 +74,7 @@ main{
     padding: 6vw 8vw;
  }
 
-a.card_option{
+a.card_option, .card_report{
     text-decoration: none;
     background-color: var(--blue-options);
     display: flex;
@@ -63,13 +97,13 @@ a.card_option:hover > img.nav_image{
     background-color: white;
 }
 
-a.card_option > img.nav_image{
+a.card_option > img.nav_image, .card_report > img.nav_image{
     width: 8vw;
     padding: 2.5vw 0vw;
     background-color: var(--blue-options);
 }
 
-a.card_option p{
+a.card_option p, .card_report p{
     font-weight: 600;
     color: black;
     font-size: 2vw;
@@ -78,4 +112,11 @@ a.card_option p{
     width: 100%;
     text-align: center;
     border-radius: 0px 0px 10px 10px;
+}
+
+.title_section{
+    z-index: 1000;
+    position: absolute;
+    top: 5vw;
+    font-size: 2.5vw;
 }

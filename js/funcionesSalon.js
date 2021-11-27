@@ -1,4 +1,4 @@
-const baseUrl = 'http://150.230.92.110:8080/api/Partyroom/'
+const baseUrl = 'http://http://150.230.92.110/:8080/api/Partyroom/'
 
 window.onload = async function(){
 
@@ -31,7 +31,7 @@ window.onload = async function(){
 
 	/*Actualizar las opciones del select*/
 	async function updateSelectCategories(){
-	const options = await listarTodos('http://150.230.92.110:8080/api/Category/');
+	const options = await listarTodos('http://http://150.230.92.110/:8080/api/Category/');
 	if(Symbol.iterator in Object(options) && options.length > 0){
 		options.forEach(option=>{
 			selectCategories.innerHTML += `<option value="${option.id}">${option.name}</option>`

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./css/index.css">
+    <title>Rango de fecha</title>
+</head>
+<body>
+    <header>
+        <a href="./informes.html" class="header_btn link_header">
+            <i class="fas fa-chevron-circle-left header_icon"></i>
+            Informes
+        </a>
+    </header>
+    <main>
+        <section class="links-navegacion">
+            <h2 class="title_section"><i class="far fa-chart-bar header_icon chart_icon"></i> Panel de Informes</h2>
+            <div class="report_logo_div">
+                <div class="card_report">
+                    <p class="title_report">Reservas</p>
+                    <img src="./img/range_date.png" alt="clients" class="nav_image">
+                    <p class="description_report">Rango de Fecha</p>
+                </div>
+                <form class="form_dates_report_bookings" id="form_report_bookings_date_range">
+                    <div class="field_form_report">
+                        <label for="booking_start_date" class="label_form_report">Check-In</label>
+                        <input type="datetime-local" id="booking_start_date" name="booking_start_date" class="input_date_form_report" autocomplete="off" required/>
+                    </div>
+                    <div class="field_form_report">
+                        <label for="booking_finish_date" class="label_form_report">Check-Out</label>
+                        <input type="datetime-local" id="booking_finish_date" name="booking_finish_date" class="input_date_form_report" autocomplete="off" required/>
+                    </div>
+                    <div class="field_form_report">
+                        <button type="submit" class="submit_args_report">
+                            <i class="fas fa-search submit_icon"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <div id="bookings_table_report" class="table_results">
+                <h1 class="table_title">Reservas</h1>
+                <div class="table">
+                    <table class="tabla_bookings_report table_cells">
+                        <thead class="table_headers">
+                            <th class="columna-id-tabla-bookings header-id-tabla-bookings header-tabla-bookings header_id">Id</th>
+                            <th class="columna-start_time-tabla-bookings header-name-tabla-bookings header-tabla-bookings">Check-In</th>
+                            <th class="columna-finish_time-tabla-bookings header-email-tabla-bookings header-tabla-bookings">Check-Out</th>
+                            <th class="columna-partyroom-tabla-bookings header-age-tabla-bookings header-tabla-bookings">Salon</th>
+                            <th class="columna-client-tabla-bookings header-age-tabla-bookings header-tabla-bookings">Cliente</th>
+                            <th class="columna-status-tabla-bookings header-age-tabla-bookings header-tabla-bookings">Estado</th>
+                        </thead>
+                        <tbody class="table_body"></tbody>
+                    </table>
+                    <table class="table_without_results">
+                        <thead><th class="without_results">Sin resultados</th></thead>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src ="js/funcionesInformes.js"></script>
+    <script src="js/funcionesAPI.js"></script>
+</body>
+</html>

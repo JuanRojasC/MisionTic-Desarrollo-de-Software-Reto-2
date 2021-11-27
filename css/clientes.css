@@ -17,3 +17,8 @@
 .columna-options-tabla-clientes{
     width: 5vw;
 }
+
+.columna-bookings-tabla-clientes{
+    width: 5vw;
+    text-align: center;
+}
