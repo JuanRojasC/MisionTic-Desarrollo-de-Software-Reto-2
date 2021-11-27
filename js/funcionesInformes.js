@@ -19,9 +19,11 @@ window.onload = async function(){
 			return;
 		}
         
-        const response = await fetch(`http://http://150.230.92.110/:8080/api/Reservation/report-dates/${dateStart}/${dateEnd}`);
+        const response = await fetch(`http://150.230.92.110:8080/api/Reservation/report-dates/${dateStart}/${dateEnd}`);
         const data = await response.json();
-        updateTable(await data, table, formatRowTable);
+        if(await data != null){
+            updateTable(await data, table, formatRowTable);
+        }
         
         function formatRowTable(data){
             return `
@@ -46,7 +48,7 @@ window.onload = async function(){
         const bookingsCancelled = bookingsProportionPanel.querySelector("#bookings_cancelled");
         const bookingsTotal = bookingsProportionPanel.querySelector("#bookings_total");
         
-        const response = await fetch("http://http://150.230.92.110/:8080/api/Reservation/report-status");
+        const response = await fetch("http://150.230.92.110:8080/api/Reservation/report-status");
         const data = await response.json();
         
         if(await data != null){
@@ -64,10 +66,11 @@ window.onload = async function(){
         
         const table = tableTopClients.querySelector(".table_body");
         
-        const response = await fetch(`http://http://150.230.92.110/:8080/api/Reservation/report-clients`);
+        const response = await fetch(`http://150.230.92.110:8080/api/Reservation/report-clients`);
         const data = await response.json();
-        console.log(await data);
-        updateTable(await data, table, formatRowTable);
+        if(await data != null){
+            updateTable(await data, table, formatRowTable);
+        }
 
         function formatRowTable(data){
             return `
